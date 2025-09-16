@@ -27,7 +27,6 @@ def load_and_preprocess_data(filepath):
     print(df.isnull().sum())
 
     # Define features and target
-    # Note: Adjust these column names based on your actual dataset!
     # This is a common structure for the Cleveland heart disease dataset.
     X = df.drop('target', axis=1) # 'target' is typically the label (0 = no disease, 1 = disease)
     y = df['target']
