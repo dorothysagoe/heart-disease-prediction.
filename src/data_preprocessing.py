@@ -1,17 +1,8 @@
 #This python script is used for data processing
-
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
 def load_and_preprocess_data(filepath):
-    """
-    Loads and preprocesses the heart disease dataset.
-    Args:
-        filepath (str): Path to the heart.csv file.
-    Returns:
-        X_train, X_test, y_train, y_test: Split and scaled data.
-        preprocessor: The fitted preprocessing pipeline for use on new data.
-    """
     # Load the data
     df = pd.read_csv(filepath)
 
@@ -27,7 +18,6 @@ def load_and_preprocess_data(filepath):
     print(df.isnull().sum())
 
     # Define features and target
-    # This is a common structure for the Cleveland heart disease dataset.
     X = df.drop('target', axis=1) # 'target' is typically the label (0 = no disease, 1 = disease)
     y = df['target']
 
@@ -39,6 +29,6 @@ def load_and_preprocess_data(filepath):
 
     return X_train, X_test, y_train, y_test
 
-# For testing the script directly
+# For testing the script 
 if __name__ == "__main__":
     X_train, X_test, y_train, y_test = load_and_preprocess_data('../../data/heart.csv')
