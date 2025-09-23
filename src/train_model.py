@@ -8,13 +8,9 @@ import os
 from .data_preprocessing import load_and_preprocess_data
 
 def train_and_save_model(data_path, model_save_path='../models/best_model.pkl'):
-    """
-    Trains a Random Forest classifier, evaluates it, and saves the best model.
-    """
     # Load and preprocess data
     X_train, X_test, y_train, y_test = load_and_preprocess_data(data_path)
 
-    # Define the model and hyperparameter grid
     model = RandomForestClassifier(random_state=42)
     param_grid = {
         'n_estimators': [100, 200],
