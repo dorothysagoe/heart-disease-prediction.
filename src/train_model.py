@@ -1,3 +1,5 @@
+#Importing all necessary libraries and packages
+
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import GridSearchCV, train_test_split
@@ -29,14 +31,14 @@ def train_and_save_model(data_path, model_save_path='../models/best_model.pkl'):
     print(f"\nBest parameters found: {grid_search.best_params_}")
     print(f"Best cross-validation score: {grid_search.best_score_:.4f}")
 
-    # Evaluate on the test set
+    # Evaluating on the test set
     y_pred = best_model.predict(X_test)
     test_accuracy = accuracy_score(y_test, y_pred)
     print(f"\nTest Set Accuracy: {test_accuracy:.4f}")
     print("\nClassification Report:")
     print(classification_report(y_test, y_pred))
 
-    # Plot and save confusion matrix
+    # Plotting and save confusion matrix
     cm = confusion_matrix(y_test, y_pred)
     disp = ConfusionMatrixDisplay(confusion_matrix=cm)
     disp.plot()
