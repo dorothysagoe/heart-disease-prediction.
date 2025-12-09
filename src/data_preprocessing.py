@@ -18,7 +18,7 @@ def load_and_preprocess_data(filepath):
     print(df.isnull().sum())
 
     # Define features and target
-    X = df.drop('target', axis=1) # 'target' is typically the label (0 = no disease, 1 = disease)
+    X = df.drop('target', axis=1) #(0 = no disease, 1 = disease)
     y = df['target']
 
     # Split the data
@@ -29,6 +29,6 @@ def load_and_preprocess_data(filepath):
 
     return X_train, X_test, y_train, y_test
 
-# For testing the script 
+# Testing the script 
 if __name__ == "__main__":
     X_train, X_test, y_train, y_test = load_and_preprocess_data('../../data/heart.csv')
